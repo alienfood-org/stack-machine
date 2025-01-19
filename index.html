@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A zen introduction to Forth" />
+    <style>
+      @import url("https://cdn.jsdelivr.net/npm/opendyslexic@1.0.3/dist/opendyslexic.css");
+
+      :root {
+        --bg: #ffffff;
+        --text: #000000;
+        --border: #000000;
+      }
+
+      [data-theme="dark"] {
+        --bg: #000000;
+        --text: #ffffff;
+        --border: #ffffff;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "OpenDyslexic", sans-serif;
+        line-height: 1.8;
+        margin: 0;
+        padding: 2rem;
+        min-height: 100vh;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+
+      .title {
+        font-family: "OpenDyslexicMono", monospace;
+        text-align: left;
+        font-size: 1.2rem;
+        font-weight: normal;
+        letter-spacing: 0.2em;
+        margin: 3rem 0;
+        opacity: 0.8;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .thought {
+        margin: 3rem 0;
+        padding: 1.5rem;
+        border-left: 2px solid var(--border);
+        font-size: 1.2rem;
+        line-height: 2.2;
+      }
+
+      .ascii {
+        border-top: 1px solid var(--text);
+        border-bottom: 1px solid var(--text);
+        font-family: monospace;
+        font-size: 1.2rem;
+        white-space: pre;
+        margin: 2rem 0;
+        line-height: 1.4;
+        padding-left: 0.5rem;
+      }
+
+      pre {
+        font-family: "OpenDyslexicMono", monospace;
+        padding: 1.5rem;
+        border-left: 2px solid var(--border);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        overflow-x: auto;
+        background: var(--bg);
+      }
+
+      #theme-toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        background: var(--text);
+        color: var(--bg);
+        border: none;
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      .spacer {
+        text-align: left;
+        margin: 2rem 0;
+        opacity: 0.7;
+      }
+      .output-section {
+        margin: 4rem 0;
+        padding: 2rem 0;
+        border-top: 1px solid var(--text);
+        border-bottom: 1px solid var(--text);
+      }
+
+      .terminal {
+        font-family: "OpenDyslexicMono", monospace;
+        white-space: pre;
+        line-height: 1.6;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-left: 2px solid var(--text);
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .koan {
+        font-family: "OpenDyslexic", sans-serif;
+        text-align: left;
+        font-style: bold italic;
+        line-height: 2;
+        margin: 3rem 0;
+        font-size: 1.5rem;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="theme-toggle" onclick="toggleTheme()">Invert</button>
+    <div class="container">
+      <h1 class="title">stack • machine</h1>
+      <div class="koan" style="border-top: 1px solid var(--text)">
+        <br />
+        The stack machine does not see the numbers
+        <br />
+        It sees only their dance
+      </div>
+
+      <div class="output-section">
+        <div class="terminal">( 3 ) ( 3 3 ) ( 9 ) ( 9 3 ) ( 27 )</div>
+      </div>
+      <div class="thought">
+        An astronomer wanted to talk to telescopes.<br />
+        He made something small but powerful.<br />
+        He called it Forth.
+      </div>
+
+      <div class="thought">
+        A stack is like a magic box.<br />
+        Things go in one at a time.<br />
+        Things come out one at a time.
+      </div>
+
+      <div class="ascii">
+        Empty: |___| One: |_3_| Two: |_3_| |_3_| Square: |_9_| |_3_|
+      </div>
+
+      <div class="thought">
+        Numbers can remember themselves.<br />
+        This memory is called 'dup'.<br />
+        Watch what happens:
+      </div>
+
+      <pre><code>
+: square  ( n -- n² )
+    dup *
+;</code></pre>
+
+      <div class="ascii">Start: |_3_| dup: |_3_| |_3_| *: |_9_|</div>
+
+      <div class="thought">
+        One number becomes two.<br />
+        Two numbers dance together.<br />
+        They become something new.
+      </div>
+
+      <pre><code>
+: cube  ( n -- n³ )
+    dup dup * *
+;</code></pre>
+
+      <div class="ascii">
+        Start: |_3_| dup dup: |_3_| |_3_| |_3_| *: |_9_| |_3_| *: |_27_|
+      </div>
+
+      <div class="thought">
+        Numbers tell us their secrets.<br />
+        Each power shows a pattern.<br />
+        Each pattern tells a story.
+      </div>
+
+      <pre><code>
+: show-powers  ( n -- )
+    dup ." Number: " .
+    dup * ." Square: " .
+    dup dup * * ." Cube: " .
+;</code></pre>
+
+      <div class="output-section">
+        <div class="terminal">
+          Number: 3 Square: 9 Cube: 27 Number: 2 Square: 4 Cube: 8 Number: 1
+          Square: 1 Cube: 1
+        </div>
+
+        <div class="koan">
+          The stack machine does not see the numbers<br />
+          It sees only their dance<br />
+          Each step reveals pattern<br />
+          Each pattern reveals path
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute("data-theme");
+        if (currentTheme === "dark") {
+          body.removeAttribute("data-theme");
+        } else {
+          body.setAttribute("data-theme", "dark");
+        }
+      }
+    </script>
+  </body>
+</html>
