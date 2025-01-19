@@ -53,16 +53,16 @@
         font-size: 1.2rem;
         line-height: 2.2;
       }
-
       .ascii {
         border-top: 1px solid var(--text);
         border-bottom: 1px solid var(--text);
-        font-family: monospace;
+        font-family: "Courier New", monospace; /* Added fallback font */
         font-size: 1.2rem;
-        white-space: pre;
+        white-space: pre-wrap; /* Changed from pre to pre-wrap */
         margin: 2rem 0;
-        line-height: 1.4;
-        padding-left: 0.5rem;
+        line-height: 1.8;
+        padding: 1.5rem;
+        display: block; /* Added display block */
       }
 
       pre {
