@@ -130,7 +130,7 @@
         <br />
         A stack machine does not see numbers
         <br />
-        It sees only their dance
+        It only sees their dance
       </div>
 
       <div class="output-section">
@@ -150,7 +150,7 @@
       <div class="thought">
         A stack is like a magic box.<br />
         Things go in one at a time.<br />
-        Things come out one at a time.
+        Things go out one at a time.
       </div>
 
       <div class="ascii">
@@ -170,7 +170,7 @@ Square:
 
       <div class="thought">
         Numbers can remember themselves.<br />
-        This memory is called 'dup'.<br />
+        This remembering is called 'dup'.<br />
         Watch what happens:
       </div>
 
@@ -192,13 +192,7 @@ dup:
 
       <div class="thought">
         One and two<br />
-        .<br />
-        .<br />
-        .<br />
-        become something new<br / >
-        .<br />
-        .<br />
-        .
+        become something new.<br / >
       </div>
 
       <pre><code>
@@ -232,26 +226,26 @@ dup dup:
 : show-powers  ( n -- )
     dup ." Number: " .
     dup * ." Square: " .
-    dup dup * * ." Cube: " .
+    dup dup * * ." Cube:   " .
 ;</code></pre>
 
       <div class="output-section">
         <div class="terminal">
 Number: 3
 Square: 9
-Cube: 27
+Cube:   27
 
 Number: 2
 Square: 4
-Cube: 8
+Cube:   8
 
 Number: 1
 Square: 1
-Cube: 1</div>
+Cube:   1</div>
       </div>
           <div class="koan" style="border-bottom: 1px solid var(--text)">
           A stack machine does not see numbers<br />
-          It sees only their dance<br />
+          It only sees their dance<br />
           Each step reveals a pattern<br />
           Each pattern reveals a path
         </div>
