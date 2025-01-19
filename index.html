@@ -53,16 +53,16 @@
         font-size: 1.2rem;
         line-height: 2.2;
       }
+
       .ascii {
         border-top: 1px solid var(--text);
         border-bottom: 1px solid var(--text);
-        font-family: "Courier New", monospace; /* Added fallback font */
+        font-family: "Courier New", monospace;
         font-size: 1.2rem;
-        white-space: pre-wrap; /* Changed from pre to pre-wrap */
+        white-space: pre;
         margin: 2rem 0;
-        line-height: 1.8;
+        line-height: 1.4;
         padding: 1.5rem;
-        display: block; /* Added display block */
       }
 
       pre {
@@ -92,6 +92,7 @@
         margin: 2rem 0;
         opacity: 0.7;
       }
+
       .output-section {
         margin: 4rem 0;
         padding: 2rem 0;
@@ -133,8 +134,14 @@
       </div>
 
       <div class="output-section">
-        <div class="terminal">( 3 ) ( 3 3 ) ( 9 ) ( 9 3 ) ( 27 )</div>
+        <div class="terminal">
+( 3 )
+( 3 3 )
+( 9 )
+( 9 3 )
+( 27 )</div>
       </div>
+
       <div class="thought">
         An astronomer wanted to talk to telescopes.<br />
         He made something small but powerful.<br />
@@ -148,8 +155,19 @@
       </div>
 
       <div class="ascii">
-        Empty: |___| One: |_3_| Two: |_3_| |_3_| Square: |_9_| |_3_|
-      </div>
+Empty:
+|___|
+
+One:
+|_3_|
+
+Two:
+|_3_|
+|_3_|
+
+Square:
+|_9_|
+|_3_|</div>
 
       <div class="thought">
         Numbers can remember themselves.<br />
@@ -162,7 +180,16 @@
     dup *
 ;</code></pre>
 
-      <div class="ascii">Start: |_3_| dup: |_3_| |_3_| *: |_9_|</div>
+      <div class="ascii">
+Start:
+|_3_|
+
+dup:
+|_3_|
+|_3_|
+
+*:
+|_9_|</div>
 
       <div class="thought">
         One number becomes two.<br />
@@ -176,8 +203,20 @@
 ;</code></pre>
 
       <div class="ascii">
-        Start: |_3_| dup dup: |_3_| |_3_| |_3_| *: |_9_| |_3_| *: |_27_|
-      </div>
+Start:
+|_3_|
+
+dup dup:
+|_3_|
+|_3_|
+|_3_|
+
+*:
+|_9_|
+|_3_|
+
+*:
+|_27_|</div>
 
       <div class="thought">
         Numbers tell us their secrets.<br />
@@ -194,9 +233,17 @@
 
       <div class="output-section">
         <div class="terminal">
-          Number: 3 Square: 9 Cube: 27 Number: 2 Square: 4 Cube: 8 Number: 1
-          Square: 1 Cube: 1
-        </div>
+Number: 3
+Square: 9
+Cube: 27
+
+Number: 2
+Square: 4
+Cube: 8
+
+Number: 1
+Square: 1
+Cube: 1</div>
 
         <div class="koan">
           The stack machine does not see the numbers<br />
